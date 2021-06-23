@@ -1,0 +1,154 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="css/vendor/simplebar.css">
+</head>
+
+<body>
+    <%- include('../includes/page-loader.ejs') %>
+    <%- include('../includes/lateral-nav-bar.ejs') %>
+
+    <%- include('../includes/lateral-chat.ejs') %>
+    <%- include('../includes/header.ejs') %>
+    <%- include('../includes/floaty-bar.ejs'); %>
+
+    <!-- BODY -->
+    <div class="content-grid">
+        <%- include('../includes/hub/banner.ejs') %>
+
+        <!-- CONTENUTO -->
+        <div class="grid grid-3-9 medium-space">
+            <%- include('../includes/hub/sidebar.ejs') %>
+
+            <!-- AREA INVITI -->
+            <div class="account-hub-content">
+                <!-- TITOLO -->
+                <div class="section-header">
+                    <div class="section-header-info">
+                        <p class="section-pretitle">Gruppi</p>
+                        <h2 class="section-title">Inviti <span class="highlighted">0</span></h2>
+                    </div>
+                </div>
+                <!-- FINE TITOLO -->
+
+                <!-- LISTA GRUPPI -->
+                <div class="grid grid-3-3-3 centered-on-mobile">
+                    <!-- GRUPPO -->
+                    <div class="user-preview small">
+                        <!-- FOTO -->
+                        <figure class="user-preview-cover liquid">
+                            <img src="/img/cover/48.jpg" alt="cover-48">
+                        </figure>
+                        <!-- FINE FOTO -->
+
+                        <!-- INFO GRUPPO -->
+                        <div class="user-preview-info">
+
+                            <!-- DESCRIZIONE -->
+                            <div class="user-short-description small">
+                                <!-- FOTO -->
+                                <a class="user-short-description-avatar user-avatar no-stats"
+                                    href="/g/nomegruppo">
+                                    <!-- BORDO -->
+                                    <div class="user-avatar-border">
+                                        <div class="hexagon-100-108"></div>
+                                    </div>
+                                    <!-- FINE BORDO -->
+
+                                    <div class="user-avatar-content">
+                                        <div class="hexagon-image-84-92" data-src="/img/avatar/28.jpg"></div>
+                                    </div>
+                                </a>
+                                <!-- FINE FOTO -->
+
+                                <p class="user-short-description-title"><a href="/g/nomegruppo">Nome Gruppo</a>
+                                </p>
+
+                                <p class="user-short-description-text">Descrizione gruppo</p>
+                            </div>
+                            <!-- FINE DESCRIZIONE -->
+
+                            <!-- STATISTICHE -->
+                            <div class="user-stats">
+                                <!-- MEMBRI -->
+                                <div class="user-stat">
+                                    <p class="user-stat-title">0</p>
+                                    <p class="user-stat-text">membri</p>
+                                </div>
+
+                                <!-- NUMERO DI POST -->
+                                <div class="user-stat">
+                                    <p class="user-stat-title">0</p>
+
+                                    <p class="user-stat-text">post</p>
+                                </div>
+                                <!-- FINE NUMERO DI POST -->
+
+                                <!-- VISITE -->
+                                <div class="user-stat">
+                                    <p class="user-stat-title">0</p>
+                                    <p class="user-stat-text">visite</p>
+                                </div>
+                            </div>
+                            <!-- FINE STATISTICHE -->
+
+                            <!-- AZIONI -->
+                            <div class="user-preview-actions">
+                                <!-- ACCETTA INVITO -->
+                                <form action="/profilo/accetta-invito" method="post" style="margin: auto; width: 40%;">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="groupID" value="">
+                                    
+                                    <button class="button secondary" style="width: 100%;">
+                                        <svg class="button-icon icon-join-group">
+                                            <use xlink:href="#svg-join-group"></use>
+                                        </svg>
+                                    </button>
+                                </form>
+                                <!-- FINE ACCETTA -->
+
+                                <!-- RIFIUTA INVITO -->
+                                <form action="/profilo/rifiuta-invito" method="post" style="margin: auto; width: 40%;">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <input type="hidden" name="groupID" value="">
+                                    
+                                    <button type="submit" class="button white white-tertiary" style="width: 100%;">
+                                        <svg class="button-icon icon-leave-group">
+                                            <use xlink:href="#svg-leave-group"></use>
+                                        </svg>
+                                    </button>
+                                </form>
+                                <!-- FINE RIFIUTA -->
+                            </div>
+                            <!-- /USER PREVIEW ACTIONS -->
+                        </div>
+                        <!-- FINE INFO -->
+
+                        <!-- FOOTER -->
+                        <div class="user-preview-footer padded">
+                            <div class="user-preview-author">
+                                <!-- FOTO -->
+                                <a class="user-preview-author-image user-avatar micro no-border"
+                                    href="/u/nomeutente">
+                                    <div class="user-avatar-content">
+                                        <div class="hexagon-image-18-20" data-src="/img/avatar/08.jpg"></div>
+                                    </div>
+                                </a>
+                                <!-- FINE FOTO-->
+
+                                <p class="user-preview-author-title">Invitato da</p>
+                                <p class="user-preview-author-text"><a href="/u/nomeutente">Nome Cognome</a></p>
+                            </div>
+                        </div>
+                        <!-- FINE FOOTER -->
+                    </div>
+                    <!-- FINE GRUPPO -->
+
+                </div>
+                <!-- FINE LISTA -->
+            </div>
+            <!-- FINE AREA -->
+        </div>
+        <!-- FINE CONTENUTO -->
+    </div>
+    <!-- FINE BODY -->
+
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,2 @@
+# EoG-Community
+Social Network made for my high school final exam. This is a Facebook-like website which is focued on videogames. This version isn't fully completed (most of the features have been removed and kept in a private repo).

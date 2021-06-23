@@ -1,0 +1,335 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/vendor/simplebar.css">
+</head>
+
+<body>
+<%- include('../includes/page-loader.ejs') %>
+<%- include('../includes/lateral-nav-bar.ejs') %>
+
+<%- include('../includes/lateral-chat.ejs') %>
+<%- include('../includes/header.ejs') %>
+<%- include('../includes/floaty-bar.ejs'); %>
+
+  <!-- CONTENT GRID -->
+  <div class="content-grid">
+    <%- include('../includes/hub/banner.ejs') %>
+
+    <!-- GRID -->
+    <div class="grid grid-3-9 medium-space">
+        <%- include('../includes/hub/sidebar.ejs') %>
+
+      <!-- GRID COLUMN -->
+      <div class="account-hub-content">
+        <!-- SECTION HEADER -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Il mio Profilo</p>
+            <h2 class="section-title">Informazioni Profilo</h2>
+          </div>
+        </div>
+        <!-- /SECTION HEADER -->
+
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+          <!-- GRID -->
+          <div class="grid grid-3-3-3 centered">
+            <!-- USER PREVIEW -->
+            <div class="user-preview small fixed-height">
+              <!-- USER PREVIEW COVER -->
+              <figure class="user-preview-cover liquid">
+                <img src="/img/cover/01.jpg" alt="cover-01">
+              </figure>
+              <!-- /USER PREVIEW COVER -->
+          
+              <!-- USER PREVIEW INFO -->
+              <div class="user-preview-info">
+                <!-- USER SHORT DESCRIPTION -->
+                <div class="user-short-description small">
+                  <!-- USER SHORT DESCRIPTION AVATAR -->
+                  <div class="user-short-description-avatar user-avatar">
+                    <!-- USER AVATAR BORDER -->
+                    <div class="user-avatar-border">
+                      <div class="hexagon-100-110"></div>
+                    </div>
+                    <!-- /USER AVATAR BORDER -->
+                
+                    <!-- USER AVATAR CONTENT -->
+                    <div class="user-avatar-content">
+                      <!-- HEXAGON -->
+                      <div class="hexagon-image-68-74" data-src="/img/avatar/08.jpg"></div>
+                      <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR CONTENT -->
+                
+                    <!-- USER AVATAR PROGRESS BORDER -->
+                    <div class="user-avatar-progress-border">
+                      <!-- HEXAGON -->
+                      <div class="hexagon-border-84-92"></div>
+                      <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR PROGRESS BORDER -->
+                  </div>
+                  <!-- /USER SHORT DESCRIPTION AVATAR -->
+                </div>
+                <!-- /USER SHORT DESCRIPTION -->
+              </div>
+              <!-- /USER PREVIEW INFO -->
+            </div>
+            <!-- /USER PREVIEW -->
+
+            <!-- UPLOAD BOX -->
+            <div class="upload-box">
+              <!-- UPLOAD BOX ICON -->
+              <svg class="upload-box-icon icon-members">
+                <use xlink:href="#svg-members"></use>
+              </svg>
+              <!-- /UPLOAD BOX ICON -->
+          
+              <p class="upload-box-title">Cambia Avatar</p>
+              <p class="upload-box-text">Dimensione minima 110x110</p>
+            </div>
+            <!-- /UPLOAD BOX -->
+          
+            <!-- UPLOAD BOX -->
+            <div class="upload-box">
+              <!-- UPLOAD BOX ICON -->
+              <svg class="upload-box-icon icon-photos">
+                <use xlink:href="#svg-photos"></use>
+              </svg>
+              <!-- /UPLOAD BOX ICON -->
+          
+              <p class="upload-box-title">Cambia Copertina</p>
+              <p class="upload-box-text">Dimensione minima 1184x300</p>
+            </div>
+            <!-- /UPLOAD BOX -->
+          </div>
+          <!-- /GRID -->
+
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <p class="widget-box-title">Dettagli Profilo</p>
+        
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form" action="/profilo/update-profile" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small active">
+                      <label for="name">Nome*</label>
+                      <input type="text" id="name" name="name" value="" required>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small active">
+                      <label for="surname">Cognome*</label>
+                      <input type="text" id="surname" name="surname" value="" required>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small full">
+                      <textarea id="profile-description" name="profile_description" placeholder="Parla un po' di te..."></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small active">
+                      <label for="profile-public-email">Email Pubblica</label>
+                      <input type="text" id="profile-public-email" name="profile_public_email" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-country">Paese</label>
+                      <select id="profile-country" name="profile_country">
+                        <option value="0">Seleziona il tuo Paese</option>
+                        <option value="1" selected>Italia</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-city">Città</label>
+                      <select id="profile-city" name="profile_city">
+                        <option value="0">Seleziona Città</option>
+                        <option value="1" selected>Ischia</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT DECORATED -->
+                    <div class="form-input-decorated">
+                      <!-- FORM INPUT -->
+                      <div class="form-input small active">
+                        <label for="profile-birthday">Compleanno</label>
+                        <input type="text" id="profile-birthday" name="profile_birthday" value="">
+                      </div>
+                      <!-- /FORM INPUT -->
+          
+                      <!-- FORM INPUT ICON -->
+                      <svg class="form-input-icon icon-events">
+                        <use xlink:href="#svg-events"></use>
+                      </svg>
+                      <!-- /FORM INPUT ICON -->
+                    </div>
+                    <!-- /FORM INPUT DECORATED -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- RIGA 3 - PULSANTE INVIO -->
+                <div class="form-row split">
+                  <!-- PULSANTE INVIO -->
+                  <div class="form-item">
+                    <div class="form-input" style="padding-top: 1rem;">
+                      <button type="submit" class="button primary">Salva i cambiamenti!</button>
+                    </div>
+                  </div>
+                  <!-- FINE PULSANTE -->
+                </div>
+                <!-- FINE RIGA 3 -->
+
+              </form>
+              <!-- /FORM -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <!-- WIDGET BOX TITLE -->
+            <p class="widget-box-title">Interessi</p>
+            <!-- /WIDGET BOX TITLE -->
+        
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form">
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small mid-textarea active">
+                      <label for="profile-favourite-shows">Serie TV preferite</label>
+                      <textarea id="profile-favourite-shows" name="profile_favourite_shows"></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small mid-textarea active">
+                      <label for="profile-favourite-music">Cantanti preferiti</label>
+                      <textarea id="profile-favourite-music" name="profile_favourite_music"></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small mid-textarea active">
+                      <label for="profile-favourite-movies">Film Preferiti</label>
+                      <textarea id="profile-favourite-movies" name="profile_favourite_movies"></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div> 
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small mid-textarea active">
+                      <label for="profile-favourite-games">Giochi preferiti</label>
+                      <textarea id="profile-favourite-games" name="profile_favourite_games"></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+              </form>
+              <!-- /FORM -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
+      </div>
+      <!-- /GRID COLUMN -->
+    </div>
+    <!-- /GRID -->
+  </div>
+  <!-- /CONTENT GRID -->
+
+  <%- include('../includes/end.ejs') %>

@@ -1,0 +1,8 @@
+{
+    "env": {
+        "SQL_SCHEMA": "SCHEMA",
+        "SQL_USER": "USER",
+        "SQL_PASSWORD": "PASSWORD",
+        "URL_WEBSITE": "http://localhost:3001"
+    }
+}

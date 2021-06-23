@@ -1,0 +1,102 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="css/vendor/simplebar.css">
+</head>
+
+<body>
+    <%- include('../includes/page-loader.ejs') %>
+    <%- include('../includes/lateral-nav-bar.ejs') %>
+
+    <%- include('../includes/lateral-chat.ejs') %>
+    <%- include('../includes/header.ejs') %>
+    <%- include('../includes/floaty-bar.ejs'); %>
+
+    <!-- BODY -->
+    <div class="content-grid">
+        <%- include('../includes/hub/banner.ejs') %>
+
+        <!-- CONTENUTO -->
+        <div class="grid grid-3-9 medium-space">
+            <%- include('../includes/hub/sidebar.ejs') %>
+
+            <!-- AREA RICHIESTE -->
+            <div class="account-hub-content">
+                <!-- TITOLO -->
+                <div class="section-header">
+                    <div class="section-header-info">
+                        <p class="section-pretitle">Il mio Profilo</p>
+                        <h2 class="section-title">Richieste di Amicizia <span class="highlighted">0</span></h2>
+                    </div>
+
+                    <div class="section-header-actions">
+                        <p class="section-header-action">Cerca Amici</p>
+                        <p class="section-header-action">Impostazioni</p>
+                    </div>
+                </div>
+                <!-- FINE TITOLO -->
+
+                <!-- LISTA RICHIESTE -->
+                <div class="notification-box-list">
+                    <!-- RICHIESTA 1 -->
+                    <div class="notification-box">
+                        <div class="user-status request">
+                            <!-- FOTO UTENTE -->
+                            <a class="user-status-avatar" href="/u/nomeutente">
+                                <div class="user-avatar small no-outline">
+                                    <!-- FOTO -->
+                                    <div class="user-avatar-content">
+                                        <div class="hexagon-image-30-32" data-src="/img/avatar/08.jpg"></div>
+                                    </div>
+                                    <!-- FINE FOTO -->
+
+                                    <!-- BORDO -->
+                                    <div class="user-avatar-progress-border">
+                                        <div class="hexagon-border-40-44"></div>
+                                    </div>
+                                    <!-- BORDO -->
+                                </div>
+                            </a>
+                            <!-- FINE FOTO -->
+
+                            <p class="user-status-title"><a class="bold" href="/u/nomeutente">Nome Cognome</a>
+                            </p>
+                            <p class="user-status-text small-space">1 amico in comune</p>
+
+                            <!-- AZIONI -->
+                            <div class="action-request-list">
+                                <form action="/v1/accept-friend" method="POST" style="margin-right: 0.5rem;">
+                                    <!-- ACCETTA -->
+                                    <button type="submit" style="background-color: transparent;">
+                                        <p class="action-request accept with-text">
+                                            <svg class="action-request-icon icon-add-friend">
+                                                <use xlink:href="#svg-add-friend"></use>
+                                            </svg>
+                                            <span class="action-request-text">Conferma</span>
+                                        </p>
+                                    </button>
+                                </form>
+
+                                <!-- RIFIUTA -->
+                                <form action="/v1/refuse-friend" method="POST">
+                                    <button style="background-color: transparent;">
+                                        <div class="action-request decline">
+                                            <svg class="action-request-icon icon-remove-friend">
+                                                <use xlink:href="#svg-remove-friend"></use>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- FINE AZIONI -->
+                        </div>
+                    </div>
+                    <!-- FINE RICHIESTA -->
+                </div>
+                <!-- FINE LISTA -->
+            </div>
+            <!-- FINE AREA -->
+        </div>
+        <!-- FINE CONTENUTO -->
+    </div>
+    <!-- FINE BODY -->
+
+    <%- include('../includes/end.ejs') %>

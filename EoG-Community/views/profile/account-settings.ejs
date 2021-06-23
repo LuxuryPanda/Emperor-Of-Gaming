@@ -1,0 +1,133 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/vendor/simplebar.css">
+</head>
+
+<body>
+<%- include('../includes/page-loader.ejs') %>
+<%- include('../includes/lateral-nav-bar.ejs') %>
+
+<%- include('../includes/lateral-chat.ejs') %>
+<%- include('../includes/header.ejs') %>
+<%- include('../includes/floaty-bar.ejs'); %>
+
+  <!-- BODY -->
+  <div class="content-grid">
+    <%- include('../includes/hub/banner.ejs') %>
+
+    <!-- CONTENUTO -->
+    <div class="grid grid-3-9 medium-space">
+        <%- include('../includes/hub/sidebar.ejs') %>
+
+      <!-- AREA IMPOSTAZIONI -->
+      <div class="account-hub-content">
+        <!-- TITOLO -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Account</p>
+            <h2 class="section-title">Impostazioni</h2>
+          </div>
+        </div>
+        <!-- FINE TITOLO -->
+
+        <!-- LISTA IMPOSTAZIONI -->
+        <div class="grid-column">
+            <!-- PRIVACY -->
+            <div class="widget-box">
+                <p class="widget-box-title">Privacy</p>
+        
+                <!-- INIZIO FORM PRIVACY -->
+                <div class="widget-box-content">
+                    <form class="form" action="/profilo/impostazioni" method="POST">
+                        <!-- RIGA 1 -->
+                        <div class="form-row split">
+                            <!-- TESTO -->
+                            <div class="form-item centered">
+                                <label class="form-title" for="profileVisibility">Chi può vedere il tuo profilo?</label>
+                            </div>
+                            <!-- FINE TEST -->
+
+                            <!-- CHECKBOX -->
+                            <div class="form-item">
+                                <div class="form-select">
+                                    <select id="profileVisibility" name="profileVisibility">
+                                        <option value="1">Tutti</option>
+                                        <option value="2" selected>Solo Membri</option>
+                                    </select>
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- FINE CHECKBOX -->
+                        </div>
+                        <!-- FINE RIGA 1 -->
+
+                        <!-- RIGA 2 -->
+                        <div class="form-row split">
+                            <!-- TESTO -->
+                            <div class="form-item centered">
+                                <label class="form-title" for="profileFriendRequest">Chi può inviarti richieste d'amicizia?</label>
+                            </div>
+                            <!-- FINE TESTO -->
+
+                            <!-- CHECKBOX -->
+                            <div class="form-item">
+                                <div class="form-select">
+                                    <select id="profileFriendRequest" name="profileFriendRequest">
+                                        <option value="1" selected>Tutti</option>
+                                        <option value="2">Amici di Amici</option>
+                                        <option value="3">Nessuno</option>
+                                    </select>
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- FINE CHECKBOX -->
+                        </div>
+                        <!-- FINE RIGA 2 -->
+
+                        <!-- RIGA 3 -->
+                        <div class="form-row split">
+                            <!-- TESTO -->
+                            <div class="form-item centered">
+                                <label class="form-title" for="profileChatActivity">Chi può vedere il tuo stato nelle chat?</label>
+                            </div>
+                            <!-- FINE TESTO -->
+
+                            <!-- CHECKBOX -->
+                            <div class="form-item">
+                                <div class="form-select">
+                                    <select id="profileChatActivity" name="profileChatActivity">
+                                        <option value="1">Tutti</option>
+                                        <option value="2" selected>Solo Amici</option>
+                                    </select>
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- FINE CHECKBOX -->
+                        </div>
+                        <!-- FINE RIGA 3 -->
+
+                        <div class="form-row split">
+                            <div class="form-item">
+                                <button class="button full primary" type="submit">Salva Impostazioni!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- FINE FORM -->
+            </div>
+            <!-- FINE PRIVACY -->
+        </div>
+        <!-- FINE LISTA -->
+      </div>
+      <!-- FINE AREA -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE BODY -->
+
+  <%- include('../includes/end.ejs') %>

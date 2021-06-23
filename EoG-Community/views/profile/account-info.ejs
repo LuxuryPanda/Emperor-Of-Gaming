@@ -1,0 +1,242 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+  <%- include('../includes/page-loader.ejs') %>
+  <%- include('../includes/lateral-nav-bar.ejs') %>
+
+  <%- include('../includes/lateral-chat.ejs') %>
+  <%- include('../includes/header.ejs') %>
+  <%- include('../includes/floaty-bar.ejs'); %>
+
+  <!-- BODY -->
+  <div class="content-grid">
+    <%- include('../includes/hub/banner.ejs') %>
+
+    <!-- CONTENUTO -->
+    <div class="grid grid-3-9 medium-space">
+      <%- include('../includes/hub/sidebar.ejs') %>
+
+      <!-- AREA DATI  -->
+      <div class="account-hub-content">
+
+        <!-- TITOLO -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Account</p>
+            <h2 class="section-title">Informazioni Account</h2>
+          </div>
+        </div>
+        <!-- FINE TITOLO -->
+
+        <!-- CONTENUTO DAIT -->
+        <div class="grid-column">
+          <!-- BOX INFO PERSONALI -->
+          <div class="widget-box">
+            <p class="widget-box-title">Informazioni Personali</p>
+
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form" action="/profilo/update-account" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <!-- RIGA 1 - NOME E MAIL -->
+                <div class="form-row split">
+                  <!-- EMAIL -->
+                  <div class="form-item">
+                    <div class="form-input small active">
+                      <label for="personalEmail">Email</label>
+                      <input type="email" id="personalEmail" name="personalEmail" value="<%= oldInput.personalEmail %>">
+                    </div>
+                  </div>
+                  <!-- FINE EMAIL -->
+                </div>
+                <!-- FINE RIGA 1 -->
+
+                <!-- RIGA 2 - PAESE E LINGUA -->
+                <div class="form-row split">
+                  <!-- PAESE -->
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label for="country">Paese</label>
+                      <select id="country" name="country">
+                        <option value="0">Seleziona il tuo Paese</option>
+                        <option value="1" selected>Italia</option>
+                      </select>
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- FINE PAESE -->
+
+                  <!-- LINGUA -->
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label for="language">Lingua</label>
+                      <select id="language" name="language">
+                        <option value="1" selected>Italiano</option>
+                        <option value="2">English</option>
+                      </select>
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- FINE LINGUA -->
+                </div>
+                <!-- FINE RIGA 2 -->
+
+                <!-- RIGA 3 - PULSANTE INVIO -->
+                <div class="form-row split">
+                  <!-- PULSANTE INVIO -->
+                  <div class="form-item">
+                    <div class="form-input" style="padding-top: 1rem;">
+                      <button type="submit" class="button primary">Salva i cambiamenti!</button>
+                    </div>
+                  </div>
+                  <!-- FINE PULSANTE -->
+                </div>
+                <!-- FINE RIGA 3 -->
+              </form>
+              <!-- FINE FORM -->
+
+              </form>
+              <!-- FINE FORM -->
+            </div>
+          </div>
+          <!-- FINE INFO PERSONALI -->
+
+          <!-- BOX INFO SICUREZZA -->
+          <div class="widget-box">
+            <p class="widget-box-title">Informazioni di Sicurezza</p>
+
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form" action="/profilo/update-security" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <!-- RIGA 1 - EMAIL RECUPERO -->
+                <div class="form-row split">
+                  <div class="form-item">
+                    <div class="form-input small active">
+                      <label for="recoveryEmail">Email di recupero</label>
+                      <input type="text" id="recoveryEmail" name="recoveryEmail" value="<%= oldInput.recoverEmail %>">
+                    </div>
+                  </div>
+                </div>
+                <!-- FINE RIGA 1 -->
+
+                <!-- RIGA 2 - DOMANDA 1 -->
+                <div class="form-row split">
+                  <!-- DOMANDA -->
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label for="recoveryQ1">Domanda di Sicurezza 01</label>
+                      <select id="recoveryQ1" name="recoveryQ1" value="<%= oldInput.Q1 %>">
+                        <option value="1">Qual'è il tuo cibo preferito?</option>
+                        <option value="2">Qual'è la tua saga di videogiochi preferita?</option>
+                      </select>
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- FINE DOMANDA -->
+
+                  <!-- RISPOSTA -->
+                  <div class="form-item">
+                    <div class="form-input small">
+                      <label for="recoveryA1">Risposta 01</label>
+                      <input type="text" id="recoveryA1" name="recoveryA1" 
+                        value="<%= oldInput.A1 %>" required>
+                    </div>
+                  </div>
+                  <!-- FINE RISPOSTA -->
+                </div>
+                <!-- FINE RIGA 2 -->
+
+                <!-- RIGA 3 - DOMANDA 2 -->
+                <div class="form-row split">
+                  <!-- DOMANDA -->
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label for="recoveryQ2">Domanda di Sicurezza 02</label>
+                      <select id="recoveryQ2" name="recoveryQ2" value="<%= oldInput.Q2 %>">
+                        <option value="1">Come si chiama il tuo animale domestico?</option>
+                      </select>
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- FINE DOMANDA -->
+
+                  <!-- RISPOSTA -->
+                  <div class="form-item">
+                    <div class="form-input small">
+                      <label for="recoveryA2">Risposta 02</label>
+                      <input type="text" id="recoveryA2" name="recoveryA2" 
+                        value="<%= oldInput.A2 %>" required>
+                    </div>
+                  </div>
+                  <!-- FINE RISPOSTA -->
+                </div>
+                <!-- FINE RIGA 3 -->
+
+                <!-- RIGA 4 - DOMANDA 3 -->
+                <div class="form-row split">
+                  <!-- DOMANDA -->
+                  <div class="form-item">
+                    <div class="form-select">
+                      <label for="recoveryQ3">Domanda di Sicurezza 03</label>
+                      <select id="recoveryQ3" name="recoveryQ3" value="<%= oldInput.Q3 %>">
+                        <option value="1">Qual'è il tuo sport preferito?</option>
+                      </select>
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                    </div>
+
+                  </div>
+                  <!-- FINE DOMANDA -->
+
+                  <!-- RISPOSTA -->
+                  <div class="form-item">
+                    <div class="form-input small">
+                      <label for="recoveryA3">Risposta 03</label>
+                      <input type="text" id="recoveryA3" name="recoveryA3" 
+                        value="<%= oldInput.A3 %>" required>
+                    </div>
+                  </div>
+                  <!-- FINE RISPOSTA -->
+                </div>
+                <!-- FINE RIGA 4 -->
+
+                <!-- RIGA 5 - PULSANTE INVIO -->
+                <div class="form-row split">
+                  <!-- PULSANTE INVIO -->
+                  <div class="form-item">
+                    <div class="form-input" style="padding-top: 1rem;">
+                      <button type="submit" class="button primary">Salva i cambiamenti!</button>
+                    </div>
+                  </div>
+                  <!-- FINE PULSANTE -->
+                </div>
+                <!-- FINE RIGA 3 -->
+              </form>
+              <!-- FINE FORM -->
+            </div>
+          </div>
+          <!-- FINE INFO SICUREZZA -->
+        </div>
+        <!-- FINE CONTENUTO DATI -->
+
+      </div>
+      <!-- FINE AREA DATI -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE BODY -->
+
+  <%- include('../includes/end.ejs') %>

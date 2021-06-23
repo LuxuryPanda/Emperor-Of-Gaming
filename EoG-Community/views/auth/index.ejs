@@ -1,0 +1,260 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+  <!-- INZIO BODY -->
+  <div class="landing">
+    <div class="landing-decoration"></div>
+
+    <!-- BENVENUTO -->
+    <div class="landing-info">
+
+      <h2 class="landing-info-pretitle">Benvenuto su</h2>
+      <h1 class="landing-info-title">Emperor of Gaming</h1>
+
+      <!-- PULSANTI CAMBIO FORM -->
+      <div class="tab-switch">
+        <p class="tab-switch-button login-register-form-trigger">Accedi</p>
+
+        <p class="tab-switch-button login-register-form-trigger">Registrati</p>
+      </div>
+      <!-- FINE PULSANTI -->
+    </div>
+    <!-- FINE BENVENUTO -->
+
+    <!-- INIZIO FORMS DI LOGIN E REGISTRAZIONE -->
+    <div class="landing-form">
+
+      <% if(!authenticating) { %>
+      <!-- LOGIN -->
+      <div class="form-box login-register-form-element">
+        <h2 class="form-box-title">Accedi al tuo account!</h2>
+
+        <!-- FORM -->
+        <form class="form" action="/login" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+          <% if (loginErrorMessage) { %>
+          <p class="landing-info-pretitle" style="text-align: center;color: red;padding-bottom: 1rem;">
+            <%= loginErrorMessage %>
+          </p>
+          <% } %>
+
+          <!-- INZIO RIGA EMAIL -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.loginEmail === '' ? '' : 'active' %>">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="loginEmail" value="<%= oldInput.loginEmail %>" required>
+              </div>
+            </div>
+          </div>
+          <!-- FINE RIGA -->
+
+          <!-- INZIO RIGA PASSWORD -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.loginPassword === '' ? '' : 'active' %>">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" value="<%= oldInput.loginPassword %>"
+                  required>
+              </div>
+            </div>
+          </div>
+          <!-- FINE RIGA -->
+
+          <!-- INIZIO RIGA RICORDAMI E PASSWORD DIMENTICATA -->
+          <div class="form-row space-between">
+            <!-- RICORDAMI -->
+            <div class="form-item">
+              <div class="checkbox-wrap">
+                <input type="checkbox" id="loginRememberMe" name="loginRememberMe" checked>
+
+                <!-- CHECKBOX BOX -->
+                <div class="checkbox-box">
+                  <svg class="icon-cross">
+                    <use xlink:href="#svg-cross"></use>
+                  </svg>
+                </div>
+                <!-- /CHECKBOX BOX -->
+
+                <label for="loginRememberMe">Ricordami</label>
+              </div>
+            </div>
+            <!-- FINE RICORADAMI -->
+
+            <!-- INIZIO PASSWORD DIMENTICATA -->
+            <div class="form-item">
+              <a class="form-link" href="/recupera-password">Password dimenticata?</a>
+            </div>
+            <!-- FINE PASSWORD DIMENTICATA -->
+          </div>
+          <!-- FINE RIGA -->
+
+          <!-- INIZIO RIGA PULSANTE -->
+          <div class="form-row">
+            <div class="form-item">
+              <button class="button medium secondary" type="submit">Accedi!</button>
+            </div>
+          </div>
+          <!-- FINE RIGA -->
+        </form>
+        <!-- FINE FORM -->
+
+        <p class="form-text" style="margin-bottom: 4.5rem">Non riesci ad accedere? <a href="#">Contattaci</a>!</p>
+      </div>
+      <!-- FINE LOGIN -->
+
+      <% } else { %>
+
+      <!-- 2FA -->
+      <div class="form-box login-register-form-element" style="padding-bottom: 10rem;">
+        <h2 class="form-box-title">Autenticazione a 2 fattori!</h2>
+
+        <!-- FORM -->
+        <form class="form" action="/2fa" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+          <% if (loginErrorMessage) { %>
+          <p class="landing-info-pretitle" style="text-align: center;color: red;padding-bottom: 1rem;">
+            <%= loginErrorMessage %>
+          </p>
+          <% } %>
+
+          <!-- INZIO RIGA CODICE -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.code2fa === '' ? '' : 'active' %>">
+                <label for="code2fa">Codice</label>
+                <input type="text" id="code2fa" name="code2fa" value="<%= oldInput.code2fa %>" required>
+              </div>
+            </div>
+          </div>
+          <!-- FINE RIGA -->
+
+          <!-- INIZIO RIGA RICORDAMI E PASSWORD DIMENTICATA -->
+          <div class="form-row space-between">
+            <!-- RICORDAMI -->
+            <div class="form-item">
+              <div class="checkbox-wrap">
+                <input type="checkbox" id="loginRememberMe" name="loginRememberMe" checked>
+
+                <!-- CHECKBOX BOX -->
+                <div class="checkbox-box">
+                  <svg class="icon-cross">
+                    <use xlink:href="#svg-cross"></use>
+                  </svg>
+                </div>
+                <!-- /CHECKBOX BOX -->
+
+                <label for="loginRememberMe">Ricordami</label>
+              </div>
+            </div>
+            <!-- FINE RICORADAMI -->
+          </div>
+          <!-- FINE RIGA -->
+
+          <!-- INIZIO RIGA PULSANTE -->
+          <div class="form-row">
+            <div class="form-item">
+              <button class="button medium secondary" type="submit">Accedi!</button>
+            </div>
+          </div>
+          <!-- FINE RIGA -->
+        </form>
+        <!-- FINE FORM -->
+
+        <p class="form-text" style="margin-bottom: 4.5rem">Non ricevi il codice? <a href="#">Contattaci</a>!</p>
+      </div>
+      <!-- FINE 2FA -->
+
+      <% } %>
+      <!-- REGSITRAZIONE -->
+      <div class="form-box login-register-form-element">
+
+        <!-- TITOLO -->
+        <h2 class="form-box-title">Crea il tuo account!</h2>
+
+        <!-- FORM -->
+        <form class="form" action="/registrazione" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+          <% if (errorMessage) { %>
+          <p class="landing-info-pretitle" style="text-align: center;color: red;padding-bottom: 1rem;">
+            <%= errorMessage %>
+          </p>
+          <% } %>
+
+          <!-- Username -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.registerUsername === '' ? '' : 'active' %>">
+                <label for="registerUsername">Nome Utente</label>
+                <input 
+                  value="<%= oldInput.registerUsername %>"
+                  type="text" id="registerUsername" name="registerUsername" required>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Username -->
+
+          <!-- Email -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.registerEmail === '' ? '' : 'active' %>">
+                <label for="registerEmail">Email</label>
+                <input 
+                  value="<%= oldInput.registerEmail %>"
+                  type="text" id="registerEmail" name="registerEmail" required>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Email -->
+
+          <!-- Password -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.registerPassword === '' ? '' : 'active' %>">
+                <label for="registerPassword">Password</label>
+                <input
+                  value="<%= oldInput.registerPassword %>"
+                  type="password" id="registerPassword" name="registerPassword" required>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Password -->
+
+          <!-- Confirm Password -->
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input <%= oldInput.registerConfirmPassword === '' ? '' : 'active' %>">
+                <label for="registerConfirmPassword">Ripeti Password</label>
+                <input 
+                  value="<%= oldInput.registerConfirmPassword %>"
+                  type="password" id="registerConfirmPassword" name="registerConfirmPassword" required>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Conferma Password -->
+
+          <!-- PULSANTE INVIO -->
+          <div class="form-row">
+            <div class="form-item">
+              <button class="button medium primary" type="submit">Registrati!</button>
+            </div>
+          </div>
+          <!-- FINE PULSANTE INVIO -->
+        </form>
+        <!-- FINE FORM -->
+
+        <p class="form-text">Riceverai un'email di conferma per per attivare il tuo account. Per qualsiasi problema, <a
+            href="/contact-us">contattaci</a>!</p>
+      </div>
+      <!-- FINE LOGIN -->
+    </div>
+    <!-- FINE FORMS -->
+
+  </div>
+  <!-- FINE BODY -->
+
+<%- include('../includes/end.ejs') %>

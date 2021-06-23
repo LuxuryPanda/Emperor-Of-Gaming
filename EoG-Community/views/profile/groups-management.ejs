@@ -1,0 +1,315 @@
+    <%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="css/vendor/simplebar.css">
+</head>
+
+<body>
+    <%- include('../includes/page-loader.ejs') %>
+    <%- include('../includes/lateral-nav-bar.ejs') %>
+
+    <%- include('../includes/lateral-chat.ejs') %>
+    <%- include('../includes/header.ejs') %>
+    <%- include('../includes/floaty-bar.ejs'); %>
+
+  <!-- BODY -->
+  <div class="content-grid">
+    <%- include('../includes/hub/banner.ejs') %>
+
+    <!-- CONTENUTO -->
+    <div class="grid grid-3-9 medium-space">
+        <%- include('../includes/hub/sidebar.ejs') %>
+
+      <!-- AREA GRUPPI -->
+      <div class="account-hub-content">
+        <!-- TITOLO -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Gruppi</p>
+            <h2 class="section-title">Gestisci Gruppi</h2>
+          </div>
+        </div>
+        <!-- FINE TITOLO -->
+
+        <!-- LISTA GRUPPI -->
+        <div class="grid grid-3-3-3 centered-on-mobile">
+          <!-- CREA GRUPPO -->
+          <div class="create-entity-box">
+            <div class="create-entity-box-cover"></div>
+        
+            <!-- ICONA -->
+            <div class="create-entity-box-avatar">
+              <svg class="create-entity-box-avatar-icon icon-group">
+                <use xlink:href="#svg-group"></use>
+              </svg>
+            </div>
+            <!-- FINE ICONA -->
+        
+            <!-- INFO NUOVO GRUPPO -->
+            <div class="create-entity-box-info">
+              <p class="create-entity-box-title">Crea un nuovo Gruppo</p>
+              <p class="create-entity-box-text">Condividi la tua passione con gli altri!</p>
+        
+              <p class="button secondary full popup-group-creation-trigger">Crea il Gruppo!</p>
+            </div>
+            <!-- FINE INFO -->
+          </div>
+          <!-- FINE CREA GRUPPO -->
+
+          <!-- GRUPPO -->
+          <div class="user-preview small fixed-height-medium">
+            <figure class="user-preview-cover liquid">
+              <img src="/img/cover/29.jpg" alt="cover-29">
+            </figure>
+
+            <!-- INFO & GESTIONE -->
+            <div class="user-preview-info">
+              <div class="user-short-description small">
+                <!-- FOTO GRUPPO -->
+                <a class="user-short-description-avatar user-avatar no-stats" href="/g/nomegruppo">
+                  <!-- BORDO -->
+                  <div class="user-avatar-border">
+                    <div class="hexagon-100-108"></div>
+                  </div>
+                  <!-- FINE BORDO -->
+              
+                  <div class="user-avatar-content">
+                    <div class="hexagon-image-84-92" data-src="/img/avatar/24.jpg"></div>
+                  </div>
+                </a>
+                <!-- FINE FOTO -->
+          
+                <p class="user-short-description-title small">
+                    <a href="/g/nomegruppo">Nome gruppo</a>
+                </p>
+          
+                <p class="user-short-description-text regular">Descrizione gruppo</p>
+              </div>
+
+              <p class="button white full popup-manage-group-trigger">Gestisci Gruppo</p>
+            </div>
+            <!-- FINE INFO -->
+          </div>
+          <!-- FINE GRUPPO -->
+        </div>
+        <!-- FINE LISTA -->
+      </div>
+      <!-- FINE AREA -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE BODY -->
+
+  <!-- POPUP CREAZIONE GRUPPO -->
+  <div class="popup-box mid popup-create-group">
+    <!-- PULSANTE CHIUSURA -->
+    <div class="popup-close-button popup-group-creation-trigger">
+      <svg class="popup-close-button-icon icon-cross">
+        <use xlink:href="#svg-cross"></use>
+      </svg>
+    </div>
+    <!-- FINE PULSANTE -->
+
+    <!-- CONTENUTO -->
+    <div class="popup-box-body">
+      <!-- BARRA LATERALE SX -->
+      <div class="popup-box-sidebar">
+        <!-- FOTO GRUPPO -->
+        <div class="user-preview small">
+          <!-- COPERTINA -->
+          <figure class="user-preview-cover liquid">
+            <img src="/img/cover/29.jpg" alt="cover-29">
+          </figure>
+          <!-- FINE COPERTINA -->
+
+          <!-- INFO -->
+          <div class="user-preview-info">
+            <div class="user-short-description small">
+              <!-- FOTO -->
+              <a class="user-short-description-avatar user-avatar no-stats">
+                <!-- BORDO -->
+                <div class="user-avatar-border">
+                  <div class="hexagon-100-108"></div>
+                </div>
+                <!-- FINE BORDO -->
+            
+                <div class="user-avatar-content">
+                  <div class="hexagon-image-84-92" data-src="/img/avatar/08.jpg"></div>
+                </div>
+              </a>
+              <!-- FINE FOTO -->
+        
+              <p class="user-short-description-title small">Nome Gruppo</p>        
+              <p class="user-short-description-text regular">Desc</p>
+            </div>
+          </div>
+          <!-- FINE INFO -->
+        </div>
+        <!-- FINE FOTO -->
+
+        <!-- LISTA MENU -->
+        <div class="sidebar-menu-item">
+          <div class="sidebar-menu-body secondary">
+            <p class="sidebar-menu-link active">Informazioni Gruppo</p>
+
+            <p class="sidebar-menu-link">Foto e Copertina</p>
+          </div>
+        </div>
+        <!-- FINE LISTA -->
+
+        <!-- FOOTER -->
+        <div class="popup-box-sidebar-footer">
+          <p class="button secondary full popup-manage-group-trigger">Crea Gruppo!</p>
+        </div>
+        <!-- FINE FOOTER -->
+      </div>
+      <!-- FINE BARRA -->
+  
+      <!-- CONTENUTO SEZIONE -->
+      <div class="popup-box-content">
+        <div class="widget-box">
+          <p class="widget-box-title">Creazione Gruppo</p>
+      
+          <!-- FORM -->
+          <div class="widget-box-content">
+            <form class="form" action="/profilo/crea-gruppo" method="POST">
+              <!-- RIGA 1 -->
+              <div class="form-row">
+                <div class="form-item">
+                  <div class="form-input small active">
+                    <label for="groupName">Nome Gruppo</label>
+                    <input type="text" id="groupName" name="groupName" value="Gruppo Bello">
+                  </div>
+                </div>
+              </div>
+              <!-- FINE RIGA 1 -->
+
+              <!-- RIGA 2 -->
+              <div class="form-row">
+                <div class="form-item">
+                  <div class="form-input small mid-textarea">
+                    <textarea id="groupDescription" name="groupDescription" placeholder="Scrivi una piccola descrizione del gruppo..."></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- FINE RIGA 2 -->
+            </form>
+          </div>
+          <!-- FINE FORM -->
+        </div>
+      </div>
+      <!-- FINE CONTENUTO -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE POPUP -->
+
+  <!-- POPUP GESTIONE GRUPPO -->
+  <div class="popup-box mid popup-manage-group">
+    <!-- PULSANTE CHIUSURA -->
+    <div class="popup-close-button popup-manage-group-trigger">
+      <svg class="popup-close-button-icon icon-cross">
+        <use xlink:href="#svg-cross"></use>
+      </svg>
+    </div>
+    <!-- FINE PULSANTE -->
+
+    <!-- CONTENUTO -->
+    <div class="popup-box-body">
+      <!-- BARRA LATERALE SX -->
+      <div class="popup-box-sidebar">
+        <!-- FOTO GRUPPO -->
+        <div class="user-preview small">
+          <!-- COPERTINA -->
+          <figure class="user-preview-cover liquid">
+            <img src="/img/cover/29.jpg" alt="cover-29">
+          </figure>
+          <!-- FINE COPERTINA -->
+
+          <!-- INFO -->
+          <div class="user-preview-info">
+            <div class="user-short-description small">
+              <!-- FOTO -->
+              <a class="user-short-description-avatar user-avatar no-stats" href="/g/gruppo">
+                <!-- BORDO -->
+                <div class="user-avatar-border">
+                  <div class="hexagon-100-108"></div>
+                </div>
+                <!-- FINE BORDO -->
+            
+                <div class="user-avatar-content">
+                  <div class="hexagon-image-84-92" data-src="/img/avatar/08.jpg"></div>
+                </div>
+              </a>
+              <!-- FINE FOTO -->
+        
+              <p class="user-short-description-title small"><a href="/g/gruppo">Nome Gruppo</a></p>        
+              <p class="user-short-description-text regular">Desc</p>
+            </div>
+          </div>
+          <!-- FINE INFO -->
+        </div>
+        <!-- FINE FOTO -->
+
+        <!-- LISTA MENU -->
+        <div class="sidebar-menu-item">
+          <div class="sidebar-menu-body secondary">
+            <p class="sidebar-menu-link active">Informazioni Gruppo</p>
+
+            <p class="sidebar-menu-link">Foto e Copertina</p>
+
+            <p class="sidebar-menu-link">Impostazioni</p>
+
+            <p class="sidebar-menu-link">Membri</p>
+
+            <p class="sidebar-menu-link">Elimina Gruppo</p>
+          </div>
+        </div>
+        <!-- FINE LISTA -->
+
+        <!-- FOOTER -->
+        <div class="popup-box-sidebar-footer">
+          <p class="button secondary full popup-manage-group-trigger">Salva Cambiamenti!</p>
+        </div>
+        <!-- FINE FOOTER -->
+      </div>
+      <!-- FINE BARRA -->
+  
+      <!-- CONTENUTO SEZIONE -->
+      <div class="popup-box-content">
+        <div class="widget-box">
+          <p class="widget-box-title">Informazioni Gruppo</p>
+      
+          <!-- FORM -->
+          <div class="widget-box-content">
+            <form class="form" action="/profilo/crea-gruppo" method="POST">
+              <!-- RIGA 1 -->
+              <div class="form-row">
+                <div class="form-item">
+                  <div class="form-input small active">
+                    <label for="groupName">Nome Gruppo</label>
+                    <input type="text" id="groupName" name="groupName" value="Gruppo Bello">
+                  </div>
+                </div>
+              </div>
+              <!-- FINE RIGA 1 -->
+
+              <!-- RIGA 2 -->
+              <div class="form-row">
+                <div class="form-item">
+                  <div class="form-input small mid-textarea">
+                    <textarea id="groupDescription" name="groupDescription" placeholder="Scrivi una piccola descrizione del gruppo..."></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- FINE RIGA 2 -->
+            </form>
+          </div>
+          <!-- FINE FORM -->
+        </div>
+      </div>
+      <!-- FINE CONTENUTO -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE POPUP -->
+
+  <%- include('../includes/end.ejs') %>

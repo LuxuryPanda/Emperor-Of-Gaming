@@ -1,0 +1,452 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/vendor/simplebar.css">
+</head>
+
+<body>
+  <%- include('../includes/page-loader.ejs') %>
+  <%- include('../includes/lateral-nav-bar.ejs') %>
+
+  <%- include('../includes/lateral-chat.ejs') %>
+  <%- include('../includes/header.ejs') %>
+  <%- include('../includes/floaty-bar.ejs'); %>
+
+  <!-- BODY -->
+  <div class="content-grid">
+    <%- include('../includes/hub/banner.ejs') %>
+
+    <!-- CONTENUTO -->
+    <div class="grid grid-3-9 medium-space">
+        <%- include('../includes/hub/sidebar.ejs') %>
+
+      <!-- GRID COLUMN -->
+      <div class="account-hub-content">
+        <!-- SECTION HEADER -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Il mio Profilo</p>
+
+            <h2 class="section-title">Social Network</h2>
+          </div>
+        </div>
+        <!-- /SECTION HEADER -->
+
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <p class="widget-box-title">I tuoi Account Social</p>
+        
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form">
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover facebook">
+                        <!-- ICON FACEBOOK -->
+                        <svg class="icon-facebook">
+                          <use xlink:href="#svg-facebook"></use>
+                        </svg>
+                        <!-- /ICON FACEBOOK -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-facebook">Nome Utente Facebook</label>
+                      <input type="text" id="accountFacebook" name="accountFacebook" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover twitter">
+                        <!-- ICON TWITTER -->
+                        <svg class="icon-twitter">
+                          <use xlink:href="#svg-twitter"></use>
+                        </svg>
+                        <!-- /ICON TWITTER -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-twitter">Nome Utente Twitter</label>
+                      <input type="text" id="accountTwitter" name="accountTwitter" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover instagram">
+                        <!-- ICON INSTAGRAM -->
+                        <svg class="icon-instagram">
+                          <use xlink:href="#svg-instagram"></use>
+                        </svg>
+                        <!-- /ICON INSTAGRAM -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-instagram">Nome Utente Instagram</label>
+                      <input type="text" id="accountInstagram" name="accountInstagram" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover twitch">
+                        <!-- ICON TWITCH -->
+                        <svg class="icon-twitch">
+                          <use xlink:href="#svg-twitch"></use>
+                        </svg>
+                        <!-- /ICON TWITCH -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-twitch">Nome Utente Twitch </label>
+                      <input type="text" id="accountTwitch" name="accountTwitch" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover discord">
+                        <!-- ICON DISCORD -->
+                        <svg class="icon-discord">
+                          <use xlink:href="#svg-discord"></use>
+                        </svg>
+                        <!-- /ICON DISCORD -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-discord">Nome Utente Discord</label>
+                      <input type="text" id="accountDiscord" name="accountDiscord" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover youtube">
+                        <!-- ICON YOUTUBE -->
+                        <svg class="icon-youtube">
+                          <use xlink:href="#svg-youtube"></use>
+                        </svg>
+                        <!-- /ICON YOUTUBE -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-youtube">Nome Utente Youtube</label>
+                      <input type="text" id="social-account-youtube" name="social_account_youtube" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input social-input small active">
+                      <!-- SOCIAL LINK -->
+                      <div class="social-link no-hover patreon">
+                        <!-- ICON PATREON -->
+                        <svg class="icon-patreon">
+                          <use xlink:href="#svg-patreon"></use>
+                        </svg>
+                        <!-- /ICON PATREON -->
+                      </div>
+                      <!-- /SOCIAL LINK -->
+                  
+                      <label for="social-account-patreon">Nome Utente Patreon</label>
+                      <input type="text" id="accountPatreon" name="accountPatreon" value="">
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  
+                </div>
+                <!-- /FORM ROW -->
+              </form>
+              <!-- /FORM -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+
+          
+        </div>
+        <!-- /GRID COLUMN -->
+
+        <!-- SECTION HEADER -->
+        <div class="section-header">
+          <div class="section-header-info">
+            <p class="section-pretitle">Il mio Profilo</p>
+            <h2 class="section-title">Twitch Stream</h2>
+          </div>
+        </div>
+        <!-- /SECTION HEADER -->
+
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <p class="widget-box-title">Connetti il tuo Account</p>
+
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- SWITCH OPTION -->
+              <div class="switch-option">
+                <p class="switch-option-title">Attiva il tuo Profilo da Stream!</p>
+                <p class="switch-option-text">Fai sapere a tutti che sei un Twitch Streamer!</p>
+
+                <!-- FORM SWITCH -->
+                <div class="form-switch">
+                  <div class="form-switch-button"></div>
+                </div>
+                <!-- /FORM SWITCH -->
+
+                <!-- BUTTON -->
+                <a class="button twitch" href="#">
+                  <!-- BUTTON ICON -->
+                  <svg class="button-icon spaced icon-twitch">
+                    <use xlink:href="#svg-twitch"></use>
+                  </svg>
+                  <!-- /BUTTON ICON -->
+                  Collega il tuo Account Twitch
+                </a>
+                <!-- /BUTTON -->
+
+
+                <!-- 
+                <p class="switch-option-meta">Linked Account: <span class="bold"></span></p>
+                -->
+              </div>
+              <!-- /SWITCH OPTION -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <!-- WIDGET BOX TITLE -->
+            <p class="widget-box-title">Programmazione delle Stream</p>
+            <!-- /WIDGET BOX TITLE -->
+        
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- FORM -->
+              <form class="form">
+                <!-- FORM ROW -->
+                <div class="form-row">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small mid-textarea active">
+                      <label for="profile-social-stream-schedule-description">Descrizione</label>
+                      <textarea id="profile-social-stream-schedule-description" name="profile_social_stream_schedule_description"></textarea>
+                    </div>
+                    <!-- /FORM INPUT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-monday">Lunedì</label>
+                      <select id="profile-social-stream-schedule-monday" name="profile_social_stream_schedule_monday">
+                        <option value="0">-</option>
+                        <option value="1" selected>20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-tuesday">Martedì</label>
+                      <select id="profile-social-stream-schedule-tuesday" name="profile_social_stream_schedule_tuesday">
+                        <option value="0">-</option>
+                        <option value="1">20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-wednesday">Mercoledì</label>
+                      <select id="profile-social-stream-schedule-wednesday" name="profile_social_stream_schedule_wednesday">
+                        <option value="0">-</option>
+                        <option value="1" selected>20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-thursday">Giovedì</label>
+                      <select id="profile-social-stream-schedule-thursday" name="profile_social_stream_schedule_thursday">
+                        <option value="0">-</option>
+                        <option value="1" selected>20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+
+                <!-- FORM ROW -->
+                <div class="form-row split">
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-friday">Venerdì</label>
+                      <select id="profile-social-stream-schedule-friday" name="profile_social_stream_schedule_friday">
+                        <option value="0">-</option>
+                        <option value="1" selected>20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-saturday">Sabato</label>
+                      <select id="profile-social-stream-schedule-saturday" name="profile_social_stream_schedule_saturday">
+                        <option value="0">-</option>
+                        <option value="1" selected>20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item">
+                    <!-- FORM SELECT -->
+                    <div class="form-select">
+                      <label for="profile-social-stream-schedule-sunday">Domenica</label>
+                      <select id="profile-social-stream-schedule-sunday" name="profile_social_stream_schedule_sunday">
+                        <option value="0">-</option>
+                        <option value="1">20:00</option>
+                      </select>
+                      <!-- FORM SELECT ICON -->
+                      <svg class="form-select-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                      </svg>
+                      <!-- /FORM SELECT ICON -->
+                    </div>
+                    <!-- /FORM SELECT -->
+                  </div>
+                  <!-- /FORM ITEM -->
+
+                  <!-- FORM ITEM -->
+                  <div class="form-item"></div>
+                  <!-- /FORM ITEM -->
+                </div>
+                <!-- /FORM ROW -->
+              </form>
+              <!-- /FORM -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
+      </div>
+      <!-- /GRID COLUMN -->
+    </div>
+    <!-- FINE CONTENUTO -->
+  </div>
+  <!-- FINE BODY -->
+
+  <%- include('../includes/end.ejs') %>

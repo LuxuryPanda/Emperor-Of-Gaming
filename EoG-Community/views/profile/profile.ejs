@@ -1,0 +1,406 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/vendor/simplebar.css">
+<link rel="stylesheet" href="/css/vendor/tiny-slider.css">
+
+</head>
+<body>
+    <%- include('../includes/page-loader.ejs') %>
+    <%- include('../includes/lateral-nav-bar.ejs') %>
+
+    <%- include('../includes/lateral-chat.ejs') %>
+    <%- include('../includes/header.ejs') %>
+    <%- include('../includes/floaty-bar.ejs'); %>
+
+    <!-- BODY -->
+    <div class="content-grid">
+        <!-- HEADER PROFILO -->
+        <div class="profile-header">
+            <!-- FOTO COPERTINA -->
+            <figure class="profile-header-cover liquid">
+                <img src="/img/cover/01.jpg" alt="cover-01">
+            </figure>
+            <!-- FINE FOTO COPERTINA -->
+
+            <div class="profile-header-info">
+                <div class="user-short-description big">
+                    <!-- FOTO DESKTOP -->
+                    <a class="user-short-description-avatar user-avatar big">
+                        <!-- BORDO -->
+                        <div class="user-avatar-border">
+                            <div class="hexagon-148-164"></div>
+                        </div>
+                        <!-- FINE BORDO -->
+
+                        <!-- FOTO -->
+                        <div class="user-avatar-content">
+                            <div class="hexagon-image-100-110" data-src="/img/avatar/08.jpg"></div>
+                        </div>
+                        <!-- FINE FOTO -->
+
+                        <div class="user-avatar-progress-border">
+                            <div class="hexagon-border-124-136"></div>
+                        </div>
+                    </a>
+                    <!-- FINE DESKTOP -->
+
+                    <!-- FOTO MOBILE -->
+                    <a class="user-short-description-avatar user-short-description-avatar-mobile user-avatar medium">
+                        <!-- BORDO -->
+                        <div class="user-avatar-border">
+                            <div class="hexagon-120-132"></div>
+                        </div>
+                        <!-- FINE BORDO -->
+
+                        <div class="user-avatar-content">
+                            <div class="hexagon-image-82-90" data-src="/img/avatar/01.jpg"></div>
+                        </div>
+                        <!-- /USER AVATAR CONTENT -->
+
+                        <div class="user-avatar-progress-border">
+                            <div class="hexagon-border-100-110"></div>
+                        </div>
+                    </a>
+                    <!-- FINE MOBILE -->
+
+                    <p class="user-short-description-title"><%= user.name + ' ' + user.surname %> </p>
+                    <p class="user-short-description-text"><%= username %></p>
+                </div>
+
+                <!-- SOCIAL UTENTE -->
+                <div class="profile-header-social-links-wrap" style="right: 0px;">
+                    <!-- LISTA -->
+                    <div id="profile-header-social-links-slider" class="profile-header-social-links">
+                        <!-- FACEBOOK -->
+                        <div class="profile-header-social-link">
+                            <a class="social-link facebook" href="#">
+                                <svg class="icon-facebook">
+                                    <use xlink:href="#svg-facebook"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- TWITTER -->
+                        <div class="profile-header-social-link">
+                            <a class="social-link twitter" href="#">
+                                <svg class="icon-twitter">
+                                    <use xlink:href="#svg-twitter"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- INSTAGRAM -->
+                        <div class="profile-header-social-link">
+                            <a class="social-link instagram" href="#">
+                                <svg class="icon-instagram">
+                                    <use xlink:href="#svg-instagram"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- TWITCH -->
+                        <div class="profile-header-social-link">
+                            <a class="social-link twitch" href="https://www.twitch.tv/">
+                                <svg class="icon-twitch">
+                                    <use xlink:href="#svg-twitch"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- FINE LISTA -->
+
+                    <!-- SLIDER MOBILE -->
+                    <div id="profile-header-social-links-slider-controls" class="slider-controls">
+                        <!-- SX -->
+                        <div class="slider-control left">
+                            <svg class="slider-control-icon icon-small-arrow">
+                                <use xlink:href="#svg-small-arrow"></use>
+                            </svg>
+                        </div>
+                        <!-- FINE SX -->
+
+                        <!-- DX -->
+                        <div class="slider-control right">
+                            <svg class="slider-control-icon icon-small-arrow">
+                                <use xlink:href="#svg-small-arrow"></use>
+                            </svg>
+                        </div>
+                        <!-- FINE DX -->
+                    </div>
+                    <!-- FINE SLIDER -->
+                </div>
+                <!-- FINE SOCIAL -->
+
+                <!-- STATISTICHE -->
+                <div class="user-stats">
+                    <!-- NUMERO POST -->
+                    <div class="user-stat big">
+                        <p class="user-stat-title">0</p>
+                        <p class="user-stat-text">post</p>
+                    </div>
+                    <!-- FINE POST -->
+
+                    <!-- NUMERO AMICI -->
+                    <div class="user-stat big">
+                        <p class="user-stat-title">0</p>
+                        <p class="user-stat-text">amici</p>
+                    </div>
+                    <!-- FINE AMICI -->
+
+                    <!-- NUMERO VISITE PROFILO -->
+                    <div class="user-stat big">
+                        <p class="user-stat-title">0</p>
+                        <p class="user-stat-text">visite</p>
+                    </div>
+                    <!-- FINE VISITE -->
+                </div>
+                <!-- FINE STATISTICHE -->
+
+                <% if(username !== loggedUser.username) { %>
+                <!-- AZIONI UTENTE -->
+                <div class="profile-header-info-actions">
+                    <form action="/v1/addFriend" method="POST" style="margin-right: 5px;">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit" class="profile-header-info-action button secondary">
+                            <span class="hide-text-mobile">Aggiungi</span> Amico+
+                        </button>
+                    </form>
+                    
+                    <a href="">
+                    <p class="profile-header-info-action button primary">
+                        <span class="hide-text-mobile">Invia</span>
+                        Messaggio
+                    </p></a>
+                </div>
+                <!-- FINE AZIONI -->
+                <% } %>
+            </div>
+        </div>
+        <!-- FINE HEADER -->
+
+        <!-- MENU PROFILO -->
+        <nav class="section-navigation">
+            <!-- LISTA -->
+            <div id="section-navigation-slider" class="section-menu">
+                <!-- CHI SONO -->
+                <a class="section-menu-item active" href="/u/<%= username %>">
+                    <svg class="section-menu-item-icon icon-profile">
+                        <use xlink:href="#svg-profile"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Chi sono</p>
+                </a>
+                <!-- FINE CHI SONO-->
+
+                <!-- FEED -->
+                <a class="section-menu-item" href="/u/<%= username %>/feed">
+                    <svg class="section-menu-item-icon icon-timeline">
+                        <use xlink:href="#svg-timeline"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Feed</p>
+                </a>
+                <!-- FINE FEED -->
+
+                <!-- AMICI -->
+                <a class="section-menu-item" href="/u/<%= username %>/amici">
+                    <svg class="section-menu-item-icon icon-friend">
+                        <use xlink:href="#svg-friend"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Amici</p>
+                </a>
+                <!-- FINE AMICI -->
+
+                <!-- GRUPPI -->
+                <a class="section-menu-item" href="/u/<%= username %>/gruppi">
+                    <svg class="section-menu-item-icon icon-group">
+                        <use xlink:href="#svg-group"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Gruppi</p>
+                </a>
+                <!-- FINE GRUPPI -->
+
+
+                <!-- STREAM -->
+                <a class="section-menu-item" href="/u/<%= username %>/stream">
+                    <svg class="section-menu-item-icon icon-streams">
+                        <use xlink:href="#svg-streams"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Stream</p>
+                </a>
+                <!-- FINE STREAM -->
+
+                <!-- BLOG -->
+                <a class="section-menu-item" href="/u/<%= username %>/blog">
+                    <svg class="section-menu-item-icon icon-blog-posts">
+                        <use xlink:href="#svg-blog-posts"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Blog</p>
+                </a>
+                <!-- FINE BLOG -->
+
+                <!-- FORUM -->
+                <a class="section-menu-item" href="/u/<%= username %>/forum">
+                    <svg class="section-menu-item-icon icon-forum">
+                        <use xlink:href="#svg-forum"></use>
+                    </svg>
+
+                    <p class="section-menu-item-text">Forum</p>
+                </a>
+                <!-- FINE FORUM -->
+            </div>
+            <!-- FINE LISTA -->
+
+            <!-- CONTROLLI -->
+            <div id="section-navigation-slider-controls" class="slider-controls">
+                <!-- SX -->
+                <div class="slider-control left">
+                    <svg class="slider-control-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                </div>
+                <!-- FINE SX -->
+
+                <!-- DX -->
+                <div class="slider-control right">
+                    <svg class="slider-control-icon icon-small-arrow">
+                        <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                </div>
+                <!-- FINE DX -->
+            </div>
+            <!-- FINE CONTROLLI -->
+        </nav>
+        <!-- FINE MENU -->
+
+        <!-- CONTENUTO -->
+        <div class="grid grid-3-6-3">
+            <!-- WIDGET SX -->
+            <div class="grid-column">
+                <!-- IN BREVE -->
+                <div class="widget-box">
+                    <p class="widget-box-title">In breve</p>
+
+                    <div class="widget-box-content">
+                        <!-- BIO -->
+                        <p class="paragraph"><%= personalInfo.bio %></p>
+
+                        <!-- DATI -->
+                        <div class="information-line-list">
+                            <!-- DATA ISCRIZIONE -->
+                            <div class="information-line">
+                                <p class="information-line-title">Iscritto il</p>
+
+                                <p class="information-line-text">
+                                    <%= user.joinDate %></p>
+                            </div>
+                            <!-- FINE DATA -->
+
+                            <!-- CITTA' -->
+                            <div class="information-line">
+                                <p class="information-line-title">Città</p>
+
+                                <p class="information-line-text">
+                                    <%= personalInfo.city !== null ? personalInfo.city : 'Una città' %></p>
+                            </div>
+                            <!-- FINE CITTA' -->
+
+                            <!-- PAESE -->
+                            <div class="information-line">
+                                <p class="information-line-title">Paese</p>
+                                <p class="information-line-text">
+                                    <%= personalInfo.country !== null ? personalInfo.country : 'Italia' %></p>
+                            </div>
+                            <!-- FINE PAESE -->
+
+                            <!-- ETA' -->
+                            <div class="information-line">
+                                <p class="information-line-title">Età</p>
+                                <p class="information-line-text">...</p>
+                            </div>
+                            <!-- FINE ETA' -->
+                        </div>
+                        <!-- FINE DATI -->
+                    </div>
+                </div>
+                <!-- FINE SU DI ME -->
+
+                <!-- INFO PERSONALI -->
+                <div class="widget-box">
+                    <p class="widget-box-title">Informazioni Personali</p>
+
+                    <div class="widget-box-content">
+                        <div class="information-line-list">
+                            <!-- EMAIL -->
+                            <div class="information-line">
+                                <p class="information-line-title">Email</p>
+                                <p class="information-line-text"><%= email %></p>
+                            </div>
+                            <!-- FINE EMAIL -->
+
+                            <!-- COMPLEANNO -->
+                            <div class="information-line">
+                                <p class="information-line-title">Compleanno</p>
+                                <p class="information-line-text"><%= personalInfo.birthday !== null ? personalInfo.birthday : '...' %></p>
+                            </div>
+                            <!-- FINE COMPLEANNO -->
+                        </div>
+                    </div>
+                </div>
+                <!-- FINE INFO -->
+            </div>
+            <!-- FINE SX -->
+
+            <!-- WIDGET CENTRALE -->
+            <div class="grid-column">
+                <div class="widget-box">
+                    <p class="widget-box-title">Interessi</p>
+
+                    <div class="widget-box-content">
+                        <div class="information-block-list">
+                            <!-- GIOCHI -->
+                            <div class="information-block">
+                                <p class="information-block-title">Giochi preferiti</p>
+
+                                <p class="information-block-text">GIOCHI</p>
+                            </div>
+                            
+                            <!-- FILM -->
+                            <div class="information-block">
+                                <p class="information-block-title">Film preferiti</p>
+
+                                <p class="information-block-text">FILM</p>
+                            </div>
+                            
+                            <!-- SERIE TV -->
+                            <div class="information-block">
+                                <p class="information-block-title">Serie TV preferite</p>
+
+                                <p class="information-block-text">SERIE TV</p>
+                            </div>
+
+                            <!-- CANTANTI -->
+                            <div class="information-block">
+                                <p class="information-block-title">Cantanti preferiti</p>
+
+                                <p class="information-block-text">CANTANTI QUI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINE CENTRALE -->
+
+            <!-- WIDGET DX -->
+            <div class="grid-column">
+            </div>
+            <!-- FINE DX -->
+        </div>
+        <!-- FINE CONTENUTO -->
+    </div>
+    <!-- FINE BODY -->
+
+<%- include('../includes/end.ejs') %>

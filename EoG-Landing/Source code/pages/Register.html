@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <title>Register | Emperor of Gaming</title>
+
+    <!-- FAVICON -->
+    <link href="../assets/images/emperor2.png" rel="shortcut icon">
+
+    <!-- DarkMode -->
+    <link href="../assets/css/light.css" id="theme-link" rel="stylesheet">
+
+
+    <!-- CORE CSS -->
+    <link href="../assets/third-party/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/utils.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+    <!-- PLUGINS -->
+    <link href="../assets/third-party/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/third-party/animate/animate.min.css" rel="stylesheet">
+    <link href="../assets/third-party/animate/animate.delay.css" rel="stylesheet">
+    <link href="../assets/third-party/owl-carousel/owl.carousel.css" rel="stylesheet">
+</head>
+<body class="fixed-header">
+<!-- MENU -->
+<header>
+    <div class="container">
+        <span class="bar hide">
+            <a class="logo">
+                <i class="fa fa-bars"></i>
+            </a>
+        </span>
+        <!-- LOGO -->
+        <a class="logo" href="../index.html">
+            <img alt="" src="../assets/images/emperor2.png" style="max-width: 100%; height: 95%">
+        </a>
+        <!-- FINE LOGO -->
+        <!-- MENU SX -->
+        <nav>
+            <div class="nav-control">
+                <ul>
+                    <!-- HOME -->
+                    <li>
+                        <a class="dropdown-toggle" href="../index.html">Home</a>
+                    </li>
+                    <!-- BLOG -->
+                    <li>
+                        <a class="dropdown-toggle" href="../pages/blog/blog-home.html">Blog</a>
+                    </li>
+                    <!-- CHI SIAMO -->
+                    <li>
+                        <a class="dropdown-toggle" href="../index.html#chisiamo">Chi Siamo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- FINE MENU SX -->
+        <div class="nav-right">
+            <div>
+                <ul>
+                    <li>
+                        <a class="dropdown-toggle">
+                            <button class="btn btn-primary btn-lg" id="btn-darkmode">Dark</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- FINE MENU -->
+
+<script src="../assets/js/darkmode.js"></script>
+
+<!-- BODY -->
+<div id="body">
+    <section class="bg relative">
+        <div class="container">
+            <div class="row" style="text-align: center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="title">
+                        <h4>Registrati</h4>
+                    </div>
+                    <form action="/Landing/registrazione" method="POST">
+                        <label>
+                            Nome utente:
+                            <input type="text" name="username" required/>
+                        </label><br/>
+
+                        <label>
+                            Nome:
+                            <input type="text" name="nome" required/>
+                        </label><br/>
+
+                        <label>
+                            Cognome:
+                            <input type="text" name="cognome" required/>
+                        </label><br/>
+
+                        <label>
+                            Password:
+                            <input type="password" name="password" required/>
+                        </label><br/><br/>
+
+                        <input type="submit" value="Registrati" class="btn btn-primary"/>
+                        <input type="reset" value="Cancella" class="btn btn-danger"/>
+                    </form>
+
+                    <script>
+
+                        $("form").submit(function (event) {
+                            if ($("input").val() === "")
+                            {
+                                alert("Non tutti i campi sono compilati!");
+                                return false;
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- FINE BODY -->
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2021 Copyright BorysProductions | Tutti i diritti riservati.</p>
+        </div>
+    </div>
+</footer>
+<!-- FINE FOOTER -->
+
+<!-- Javascript -->
+<script src="../assets/third-party/jquery/jquery-1.11.1.min.js"></script>
+<script src="../assets/third-party/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/third-party/core.min.js"></script>
+</body>
+</html>
